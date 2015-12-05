@@ -19,8 +19,10 @@ public class DayThree {
         char south = 'v';
         char west = '<';
         char east = '>';
-        int x = 0;
-        int y = 0;
+        int santaX = 0;
+        int santaY = 0;
+        int robotX = 0;
+        int robotY = 0;
         int result = 0;
        
         
@@ -38,31 +40,57 @@ public class DayThree {
                 for(int i=0; i<lengthArray; i++)
                 { /*System.out.print(signs[i]);*/
          
-                String coordinates = ""+x+y;
+                String coordinatesSanta = ""+santaX+santaY;
+                String coordinatesRobot = ""+robotX+robotY;
                 /*System.out.print(coordinates+"/");*/
-                coordinatesSet.add(coordinates);
-            
+                coordinatesSet.add(coordinatesSanta);
+                coordinatesSet.add(coordinatesRobot);
+                
+                if ( i%2 == 0)
+                {    
                         if( signs[i] == north )
                         {
-                            y++;
+                            santaY++;
                         }
                         else if ( signs[i] == south )
                         {
-                           y--; 
+                           santaY--; 
                         } 
                         else if ( signs[i] == east )
                         {
-                            x++;
+                            santaX++;
                         }
                         else if ( signs[i] == west)
                         {
-                            x--;
+                            santaX--;
                         }
                 }
+                else
+                {
+                        if( signs[i] == north )
+                        {
+                            robotY++;
+                        }
+                        else if ( signs[i] == south )
+                        {
+                           robotY--; 
+                        } 
+                        else if ( signs[i] == east )
+                        {
+                            robotX++;
+                        }
+                        else if ( signs[i] == west)
+                        {
+                            robotX--;
+                        }  
+                }
+                }
         }  
-        String coordinates = ""+x+y;
-        /*System.out.print(coordinates+"/");*/
-        coordinatesSet.add(coordinates);
+         String coordinatesSanta = ""+santaX+santaY;
+         String coordinatesRobot = ""+robotX+robotY;
+         /*System.out.print(coordinates+"/");*/
+         coordinatesSet.add(coordinatesSanta);
+         coordinatesSet.add(coordinatesRobot);
         
         result = coordinatesSet.size();
         System.out.println(result);
